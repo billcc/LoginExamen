@@ -1,0 +1,19 @@
+{% extends 'userprofile/base.html' %}
+
+{% block title %}{{todo}}{% endblock %}
+
+{% block content %}
+<table>
+<tr><th>departamento:</th><td>{{todo}}</td></tr>
+<tr><th>usuario:</th><td>{{todo.usuario}}</td></tr>
+<tr><th>documento:</th><td>{{todo.get_documento_display}}</td></tr>
+<tr><th>Added on:</th><td>{{todo.added_on}}</td></tr>
+
+<tr><th>fecha:</th><td>{{todo.fecha}}</td></tr>
+</table>
+{% if perms.userprofile.change_app %}
+<a href="{% url 'app_update' todo.pk %}">Update</a>
+{% endif %} | {% if perms.userprofile.delete_app %}
+<a href="{% url 'app_delete' todo.pk %}">Delete</a>
+{% endif %}
+{% endblock %}

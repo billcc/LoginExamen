@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+<html>
+<head>
+  <title>{% block title %}Untitled{% endblock %} | Todo list with permissions</title>
+  
+</head>
+<body>
+<h1>EXAMEN LP2 Registro Usuarios</h1>
+<li><a href="{% url 'app_list' %}">REGISTRO</a></li>
+{% if perms.userprofile.add_app %}
+<li><a href="{% url 'app_create' %}">AGREGAR</a></li>
+{% endif %}
+<hr/>
+{% block content %}
+The end user should never ever see this!
+{% endblock %}
+</body>
+</html>

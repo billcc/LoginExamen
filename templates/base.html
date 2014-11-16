@@ -1,0 +1,41 @@
+<html>
+    <head>
+
+    <title>{% block title %}Untitled{% endblock %} | Todo list with permissions</title>
+</head>
+<body>
+<div class = "container">
+    <div class="alert alert-info">
+        <h1>EXAMEN LP2</h1>
+            <h4>estudiante Rudy Soler Medina Pacompia</h4>
+
+        <img src="fc,140x140,creme.u5" class="img-polaroid">
+
+        <span class="input-group-addon"><span class="glyphicon
+                glyphicon-globe"></span>El One Piece Existe</span>
+    </div>
+
+        <a type="button" class="btn btn-info" href="{% url 'app_list' %}">Inicio</a>{% if perms.todo.add_todo %}   
+        <a type="button" class="btn btn-info" href="{% url 'app_create' %}">Agregar Usuario</a>{% endif %}
+
+        {% if user.is_authenticated %}
+           <p class="navbar-text pull-right">    
+               <strong>Usuario {{user.username}}</strong>
+               
+        <span class="glyphicon glyphicon-user"></span> 
+           </p>
+           {% endif %} 
+
+
+
+
+    <div class =  "well">         
+{% block content %}
+The end user should never ever see this!
+{% endblock %} 
+    </div>
+</div>
+ 
+        </div> 
+</body>
+</html>

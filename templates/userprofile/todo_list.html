@@ -1,0 +1,16 @@
+{% extends 'userprofile/base.html' %}
+
+{% block title %}Todo List{% endblock %}
+
+{% block content %}
+<table class = "table table-striped" cellspacing = '0'> 
+<thead><tr><th>Users</th><th>Acciones</th></tr></thead>
+<tbody>
+  {% for todo in todo_list %}
+  <tr><td>{% if perms.todo.view_todo %}<a 
+  	          href="{{userprofile.get_absolute_url}}">{{todo}}</a>{% else %}{{todo}}{% endif %}</td>
+  <td>{% if perms.userprofile.change_todo %}<a href="{% url 'app_update' todo.pk %}">Editar</a>{% endif %} | {% if perms.userprofile.delete_app %}<a href="{% url 'app_delete' todo.pk %}">Eliminar</a>{% endif %}</td></tr>
+  {% endfor %}
+</tbody>
+</table>
+{% endblock %}
