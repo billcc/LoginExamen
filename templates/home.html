@@ -1,35 +1,42 @@
- <table>
+  <tr>REGISTRO DE DATOS DEL USUARIO: " <td>{{ user.username }}</td>"<hr style="color: #0056b2;" />
+ <table><th>Nombre :</th>  
         <tr>
             <td>{{ user.username.label_tag }}</td>
             <td>{{ user.username }}</td>
+
         </tr>
- 
+       
+        <th>Email :</th>              
         <tr>
             <td>{{ user.email.label_tag }}</td>
             <td>{{ user.email }}</td>
         </tr>
- 
+        <th>DNI :</th>
         <tr>
             <td>{{ user.first_name.label_tag }}</td>
             <td>{{ user.first_name }}</td>
         </tr>
- 
-        <tr>
+        <th>provincia :</th>
+         <tr>
             <td>{{ user.last_name.label_tag }}</td>
             <td>{{ user.last_name }}</td>
         </tr>
- 
+        <th>Hora De Ingreso :</th>
         <tr>
             <td>{{ user.date_joined.label_tag }}</td>
             <td>{{ user.date_joined }}</td>
         </tr>
- 
+        <th>Hora Despues de Ingreso :</th>
         <tr>
             <td>{{ user.last_login.label_tag }}</td>
             <td>{{ user.last_login }}</td>
         </tr>
+    
  
     </table>
  
-    <a href="{% url 'logout' %}">Logout</a>
+    <a href="{% url 'logout' %}">Salir</a>
+    <li><a href="{% url 'app_list' %}">index</a></li>
+
+    
  
